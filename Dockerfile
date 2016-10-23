@@ -16,22 +16,9 @@ RUN apt-get update && \
 ADD types.db /usr/share/collectd/types.db
 ADD config.toml /config/config.toml
 ADD run.sh /run.sh
-RUN chmod +x /*.sh
 
 ENV PRE_CREATE_DB **None**
 ENV SSL_SUPPORT **False**
-
-# Admin server WebUI
-EXPOSE 8083
-
-# HTTP API
-EXPOSE 8086
-
-# Raft port (for clustering, don't expose publicly!)
-#EXPOSE 8090
-
-# Protobuf port (for clustering, don't expose publicly!)
-#EXPOSE 8099
 
 VOLUME ["/data"]
 
